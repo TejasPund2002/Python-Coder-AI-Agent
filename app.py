@@ -3,7 +3,7 @@ import streamlit as st
 from google.genai import Client
 
 # Load API key from Streamlit Secrets
-API_KEY = st.secrets["GOOGLE_API_KEY"]
+API_KEY = st.secrets["AIzaSyDlirZJiQuJDSIpgxT2IWbUvaa7U3t2-sM"]
 
 client = Client(api_key=API_KEY)
 
@@ -46,3 +46,4 @@ else:
     for msg in st.session_state.messages:
         if msg["role"] != "system":
             st.chat_message(msg["role"]).markdown(msg["text"])
+
