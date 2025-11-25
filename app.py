@@ -7,7 +7,7 @@ API_KEY = st.secrets["GOOGLE_API_KEY"]
 
 client = Client(api_key=API_KEY)
 
-st.title("Python 🐍 AI Agent")
+st.title("Python🐍 Coding Agent")
 
 # Session for chat history
 if "messages" not in st.session_state:
@@ -40,6 +40,7 @@ if user_input:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
 
 
 
