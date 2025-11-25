@@ -1,4 +1,5 @@
 import streamlit as st
+from google import genai
 from google.genai import Client
 
 
@@ -25,4 +26,5 @@ if user_input:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
 
