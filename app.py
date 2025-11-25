@@ -1,5 +1,6 @@
 import streamlit as st
-import google_genai as genai
+from google.genai import Client
+
 
 API_KEY = st.secrets["GOOGLE_API_KEY"]
 
@@ -24,3 +25,4 @@ if user_input:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
