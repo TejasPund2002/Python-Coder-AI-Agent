@@ -25,7 +25,7 @@ if user_input:
         input=user_input
     )
 
-    ai_msg = response.output_text
+    ai_msg = response
 
     st.session_state.messages.append({"role": "assistant", "content": ai_msg})
 
@@ -33,3 +33,4 @@ if user_input:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
