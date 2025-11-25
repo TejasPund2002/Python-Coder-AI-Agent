@@ -15,17 +15,24 @@ if "messages" not in st.session_state:
 
 # User input
 user_input = st.chat_input("Ask something...")
+system_prompt = "You are a Python coding assistant. Reply with Python code only."
+
+def ask_agent(message):
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=message, 
+        config={
+            "system_instruction": system_prompt
+        }
+    )
+    return response.text
+
 
 if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
 
-    # Generate AI response
-    response = client.responses.generate(
-        model="gemini-2.0-flash",
-        input=user_input
-    )
-
-    ai_msg = response
+    # Generate AI res
+    ai_msg=ask_agent(user_input)
 
     st.session_state.messages.append({"role": "assistant", "content": ai_msg})
 
@@ -33,4 +40,5 @@ if user_input:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
 
