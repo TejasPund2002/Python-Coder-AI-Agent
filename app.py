@@ -15,7 +15,7 @@ if "messages" not in st.session_state:
 
 # User input
 user_input = st.chat_input("Ask something...")
-system_prompt = "You are a Python coding assistant. Reply with Python code only."
+system_prompt = "You are a Python coding assistant. Reply with Python code only.any Other Language not allow"
 
 def ask_agent(message):
     response = client.models.generate_content(
@@ -40,6 +40,7 @@ if user_input:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
 
 
 
