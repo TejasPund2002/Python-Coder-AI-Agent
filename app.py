@@ -19,15 +19,14 @@ if user_input:
     response = client.models.generate_content(
         model="gemini-2.0-flash",
         contents=user_input, 
-        config={
-            "system_instruction": system_prompt
-        })
+        )
     ai_msg = response.output_text
     st.session_state.messages.append({"role": "assistant", "content": ai_msg})
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
 
 
 
